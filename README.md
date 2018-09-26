@@ -1,4 +1,4 @@
-# lambda-util - A collection of utility methods for my serverless apps
+# lambda-util
 
 A collection of utility methods for my serverless apps
 
