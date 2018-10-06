@@ -9,7 +9,7 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/smartystreets/assertions v0.0.0-20180820201707-7c9eb446e3cf // indirect
 	github.com/smartystreets/goconvey v0.0.0-20180222194500-ef6db91d284a // indirect
-	github.com/stretchr/testify v1.2.2 // indirect
+	github.com/stretchr/testify v1.2.2
 	golang.org/x/net v0.0.0-20180925072008-f04abc6bdfa7 // indirect
 	golang.org/x/text v0.3.0 // indirect
 )

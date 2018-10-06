@@ -3,3 +3,7 @@ bin/*
 
 ## Debug
 debug/
+
+## Code coverage
+cover.out
+cover.html

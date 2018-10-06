@@ -59,6 +59,11 @@ func httpcall(URL string, requestType string, encoding string, payload string, h
 		req.Header = header
 	}
 
+	// Set the encoding
+	if len(encoding) > 0 {
+		req.Header["Content-Type"] = []string{encoding}
+	}
+
 	// Execute the HTTP request
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -72,6 +77,9 @@ func httpcall(URL string, requestType string, encoding string, payload string, h
 		return httpresponse, err
 	}
 
+	httpresponse.Headers = res.Header
+	httpresponse.StatusCode = res.StatusCode
+
 	var data map[string]interface{}
 
 	if err := json.Unmarshal(body, &data); err != nil {
@@ -79,8 +87,6 @@ func httpcall(URL string, requestType string, encoding string, payload string, h
 	}
 
 	httpresponse.Body = data
-	httpresponse.Headers = res.Header
-	httpresponse.StatusCode = res.StatusCode
 
 	return httpresponse, nil
 }

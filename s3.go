@@ -13,7 +13,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
 )
 
-// DownloadFile downloads a file from Amazon S3 and stores it  in the specified location.
+// DownloadFile downloads a file from Amazon S3 and stores it in the specified location.
 func DownloadFile(awsSession *session.Session, folder string, filename string, bucket string) error {
 	// Create an instance of the S3 Downloader
 	s3Downloader := s3manager.NewDownloader(awsSession)
@@ -33,6 +33,7 @@ func DownloadFile(awsSession *session.Session, folder string, filename string, b
 	// Download the file to disk
 	_, err = s3Downloader.Download(tempFile, objectInput)
 	if err != nil {
+		os.Remove(filepath.Join(folder, filename))
 		return err
 	}
 
